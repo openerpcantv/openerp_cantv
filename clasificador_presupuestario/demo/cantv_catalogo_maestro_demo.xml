@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="maestro1" model="cantv.catalogo.maestro">
+            <field name="name">TIPO DE CUENTA</field>
+            <field name="descripcion">comentario</field>
+            <field name="active">TRUE</field>
+        </record>
+        
+        <record id="maestro2" model="cantv.catalogo.maestro">
+            <field name="name">PROFESION</field>
+            <field name="descripcion">comentario</field>            
+            <field name="active">TRUE</field>
+        </record>
+        
+        <record id="detalle1" model="cantv.catalogo.detalle">
+            <field model="cantv.catalogo.maestro" name="cantv_catalogo_maestro_id" search="[('name','=','TIPO DE CUENTA')]"/>        
+            <field name="prefijo">T</field>
+            <field name="name">TOTALIZADORA</field>            
+            <field name="active">TRUE</field>
+        </record>
+        
+        <record id="detalle2" model="cantv.catalogo.detalle">
+            <field model="cantv.catalogo.maestro" name="cantv_catalogo_maestro_id" search="[('name','=','TIPO DE CUENTA')]"/>         
+            <field name="prefijo">M</field>
+            <field name="name">MOVIMIENTO</field>            
+            <field name="active">TRUE</field>
+        </record>
+        
+        <record id="detalle3" model="cantv.catalogo.detalle">
+            <field model="cantv.catalogo.maestro" name="cantv_catalogo_maestro_id" search="[('name','=','PROFESION')]"/>        
+            <field name="prefijo">ING</field>
+            <field name="name">INGENIERO</field>            
+            <field name="active">TRUE</field>
+        </record>
+        
+        <record id="detalle4" model="cantv.catalogo.detalle">
+            <field model="cantv.catalogo.maestro" name="cantv_catalogo_maestro_id" search="[('name','=','PROFESION')]"/>        
+            <field name="prefijo">ADM</field>
+            <field name="name">ADMINISTRADOR</field>            
+            <field name="active">TRUE</field>
+        </record>
+    </data>
+</openerp>

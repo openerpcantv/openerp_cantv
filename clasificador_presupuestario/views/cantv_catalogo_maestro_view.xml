@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+    	<!-- Se define el listado  -->
+        <record model="ir.ui.view" id="view_cantv_catalogo_maestro_tree">
+	        <field name="name">cantv.catalogo.maestro.tree</field>
+	        <field name="model">cantv.catalogo.maestro</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+	            <tree string="Catálogo Maestro">
+	                <field name="name"/>
+	                <field name="descripcion"/>
+	                <field name="active"/>
+	            </tree>
+	        </field>
+		</record>
+	        
+	    <!-- Se define el formulario  -->
+	    <record model="ir.ui.view" id="view_cantv_catalogo_maestro_form">
+	        <field name="name">cantv.catalogo.maestro.form</field>
+	        <field name="model">cantv.catalogo.maestro</field>
+	        <field name="type">form</field>
+	        <field name="arch" type="xml">
+	            <form string="Catálogo Maestro" version="7.0">
+	                <sheet>
+						<separator string="Catálogo Maestro"/>
+	                    <group col="2">
+			                <field name="name"/>
+			                <field name="descripcion"/>
+			                <field name="active"/>
+				            <!-- Alcema la información del Detalle -->
+				            <field name="detalle" >
+				            	<form string="Detalle" version="7.0" >
+				            		<group col="2">
+				            			<field name="prefijo" />
+				            			<field name="name" />
+				            			<field name="active" />
+				            		</group>
+	                            		</form> 
+				            </field>
+			            </group>
+			            
+	                </sheet>
+	            </form>
+	        </field>
+	    </record>
+	    
+    	<record model="ir.actions.act_window" id="action_cantv_catalogo_maestro_form">
+	        <field name="name">Catálogo Maestro</field>
+	        <field name="res_model">cantv.catalogo.maestro</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+	        <field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Pulse .... 
+				</p>
+			</field>
+    	</record>
+    	
+    </data>
+</openerp>

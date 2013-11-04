@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Se define el listado  -->
+        <record id="view_cantv_pre_clasificador_presupuestario_tree" model="ir.ui.view">
+            <field name="name">cantv.pre.clasificador.presupuestario.tree</field>
+            <field name="model">cantv.pre.clasificador.presupuestario</field>
+            <field name="type">tree</field>
+            <field name="field_parent">child_ids</field>
+            <field name="arch" type="xml">
+                <tree string="Clasificador Presupuestario">
+                    <field name="cantv_pre_config_clasificador_id"/>
+                    <field name="name"/>
+                    <field name="codigo"/>
+                    <field name="parent_id"/>
+                    <field name="desde"/>
+                    <field name="hasta"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        
+
+        <!-- Se define el formulario -->
+        <record id="view_cantv_pre_clasificador_presupuestario_form" model="ir.ui.view">
+            <field name="name">cantv.pre.clasificador.presupuestario.form</field>
+            <field name="model">cantv.pre.clasificador.presupuestario</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Clasificador Presupuestario" version="7.0" >
+                
+                    <sheet>
+                        <group expand="0">
+                            <field name="cantv_pre_config_clasificador_id"/>
+	                        <field name="parent_id"/>
+	                        <field name="name"/>  
+	                        <field name="codigo" on_change='checkcodigo(codigo,cantv_pre_config_clasificador_id)'/>
+                            <field name="cantv_pre_nivel_clasificador_id"/>
+                            <field name="cantv_catalogo_detalle_id" domain="[('cantv_catalogo_maestro_id','=',1)]"/>
+                        </group>
+                        
+                        <group col="4">
+                            <field name="desde" on_change='verifica_fecha(desde,hasta, active)'/>
+                            <field name="hasta" on_change='verifica_fecha(desde,hasta, active)'/>
+                        </group>
+                        
+                        <group expand="0">
+                            <field name="descripcion"/>
+                            <field name="observacion"/>
+                            <field name="child_ids"/>
+                            <field name="historico_id"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                    
+                </form>
+            </field>
+        </record>
+        
+        
+
+        <!-- Se define una accion para disparar el formulario -->
+        <record id="open_cantv_pre_clasificador_presupuestario_form" model="ir.actions.act_window">
+            <field name="name">Clasificador Presupuestario</field>
+            <field name="res_model">cantv.pre.clasificador.presupuestario</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Pulse para crear el Clasificador Presupuestario.
+                </p>
+                <p>
+                    {Texto de complemento}
+                </p>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

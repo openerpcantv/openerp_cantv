@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+    	<!-- Se define el listado  -->
+        <record model="ir.ui.view" id="view_cantv_pre_nivel_clasificador_tree">
+	        <field name="name">cantv.pre.nivel.clasificador.tree</field>
+	        <field name="model">cantv.pre.nivel.clasificador</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+	            <tree string="Nivel Clasificador">
+	                		<field name="cantv_pre_config_clasificador_id"/>
+	                		<field name="cantv_catalogo_detalle_id"/>
+	                		<field name="nivel"/>
+	                		<field name="longitud"/>
+	                		<field name="name"/>
+	                		<field name="active"/>
+	            </tree>
+	        </field>
+		</record>
+	        
+	    <!-- Se define el formulario  -->
+	    <record model="ir.ui.view" id="view_cantv_pre_nivel_clasificador_form">
+	        <field name="name">cantv.pre.nivel.clasificador.form</field>
+	        <field name="model">cantv.pre.nivel.clasificador</field>
+	        <field name="type">form</field>
+	        <field name="arch" type="xml">
+	            <form string="Nivel Clasificador" version="7.0">
+	                <sheet>
+				<separator string="Niveles del Clasificador Presupuestario"/>
+	                	<group col="2">
+	                		<field name="cantv_pre_config_clasificador_id" domain="['|',('active','=',False), ('active','=',True)]"/>
+	                		<field name="cantv_catalogo_detalle_id" />
+	                		<field name="nivel"/>
+	                		<field name="longitud"/>
+	                		<field name="name"/>
+	                		<field name="active"/>
+		                </group>	                
+	                </sheet>
+	            </form>
+	        </field>
+	    </record>
+    
+    	<record model="ir.actions.act_window" id="action_cantv_pre_nivel_clasificador_form">
+	        <field name="name">Nivel Clasificador</field>
+	        <field name="res_model">cantv.pre.nivel.clasificador</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+	        <field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Pulse para crear un Nivel de Clasificador Presupuestario.
+				</p>
+				<p>
+					Este permitira .... (Jorge y Lorena Complementar la información)
+				</p>
+			</field>
+    	</record>
+
+    </data>
+</openerp>
+

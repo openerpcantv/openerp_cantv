@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+    
+		<!--MENÚ PRINCIPAL-->
+    	<menuitem
+    	id="cantv_presupuesto_main"
+        name="Configuración Presupuesto"
+        sequence="0"/>
+        
+                 
+        	<!--CABECERAS PRINCIPALES-->
+	        <menuitem
+	    	name="Catalogo General"
+	        id="cantv_configuracion"
+	        parent="cantv_presupuesto_main"
+	        sequence="1"/>
+		        
+		        <menuitem
+		    	name="Catalogo"
+		        id="cantv_catalogo"
+		        parent="cantv_configuracion"
+		        action="action_cantv_catalogo_maestro_form"
+		        sequence="2"/>
+		        
+	        <menuitem
+	    	name="Presupuesto"
+	        id="cantv_configuracion_general_clasificador"
+	        parent="cantv_presupuesto_main"
+	        sequence="1"/>
+
+		        <menuitem
+		    	name="Configurar Clasificador"
+		        id="cantv_config_clasificador"
+		        parent="cantv_configuracion_general_clasificador"
+		        action="action_cantv_pre_config_clasificador_form"
+		        sequence="4"/>
+		        	
+		        <menuitem
+		    	name="Clasificador Presupuestario"
+		        id="cantv_pre_clasificador_presupuestario"
+		        parent="cantv_configuracion_general_clasificador"
+		        action="open_cantv_pre_clasificador_presupuestario_form"
+		        sequence='5'/>
+		        		
+		        <menuitem
+		    	name="Nivel del Clasificador"
+		        id="cantv_pre_nivel_clasificador"
+		        parent="cantv_configuracion_general_clasificador"
+		        action="action_cantv_pre_nivel_clasificador_form"
+		        sequence='6'/>
+        
+    </data>
+</openerp>
